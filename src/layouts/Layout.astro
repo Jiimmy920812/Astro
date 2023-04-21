@@ -48,11 +48,15 @@ const { title } = Astro.props;
 
   .container {
     position: relative;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: var(--bg-image-main);
+    background-image: var(--bg-image-main);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .bg {
     width: 100%;
@@ -66,7 +70,7 @@ const { title } = Astro.props;
     position: absolute;
     top: 45px;
   }
-  section{
+  section {
     margin-top: 200px;
   }
 </style>

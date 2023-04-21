@@ -1,0 +1,48 @@
+---
+const cardData = [
+  { name: 'Jimmy', image: '/assets/stock-1.jpg' },
+  { name: 'Jenny', image: '/assets/stock-2.jpg' },
+  { name: 'Paul', image: '/assets/stock-3.jpg' },
+  { name: 'Mary', image: '/assets/stock-4.jpg' }
+];
+---
+
+<div class="cardBg">
+  {
+    cardData.map((value) => (
+      <>
+        <div class="card">
+          <p>{value.name} </p>
+          <img src={value.image} alt="" />
+        </div>
+      </>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  .cardBg {
+    display: flex;
+    flex-wrap: wrap;
+    height: 800px;
+    width:1400px;
+  }
+  .card {
+    position: relative;
+    margin: 40px;
+    p {
+      font-size: 20px;
+      font-weight: bolder;
+      position: absolute;
+      background-color: white;
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 15px;
+    }
+    img {
+      height: 350px;
+      width: auto;
+      border-radius: 20px;
+    }
+  }
+</style>
