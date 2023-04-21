@@ -1,0 +1,71 @@
+---
+const textLinks: { label: string; href: string }[] = [
+  { label: 'Home', href: '/' },
+  { label: 'work', href: '/work/' },
+  { label: 'about', href: '/about/' }
+];
+---
+
+<nav id="menu-content">
+  <div class="nav-items">
+    {
+      textLinks.map(({ label, href }) => (
+        <p>
+          <a
+            aria-current={Astro.url.pathname === href}
+            class:list={[
+              'link',
+              {
+                active:
+                  Astro.url.pathname === href ||
+                  (href !== '/' && Astro.url.pathname.startsWith(href))
+              }
+            ]}
+            href={href}
+          >
+            {label}
+          </a>
+        </p>
+      ))
+    }
+  </div>
+</nav>
+
+<style>
+  #menu-content {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+  }
+  .nav-items {
+    width: 260px;
+    height: 60px;
+    background-color: white;
+    border-radius: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    list-style: none;
+  }
+
+  .link {
+    font-weight: bolder;
+    color:var(--gray-300);
+    text-decoration: none;
+    margin: 0px 8px;
+    padding: 10px 12px;
+    border-radius: 20rem;
+  }
+
+  .link:hover {
+    background-color: hsla(280, 89%, 67%, 0.33);
+  }
+
+  .link.active {
+    background-color: #7611a6;
+    color: white;
+  }
+</style>
