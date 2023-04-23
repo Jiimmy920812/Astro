@@ -4,19 +4,35 @@ import Card from '../components/card.astro';
 ---
 
 <Layout>
-  <h1>My work</h1>
-  <h5>
-    See my most recent projects below to get an idea of my past experience.
-  </h5>
-
-  <Card />
+  <div class="content">
+    <header>
+      <h1>My work</h1>
+      <h5>
+        See my most recent projects below to get an idea of my past experience.
+      </h5>
+    </header>
+    <main>
+      <Card />
+    </main>
+  </div>
 </Layout>
 
 <style>
+  header {
+    position: relative;
+  }
   h1 {
     font-family: 'Jost', sans-serif;
   }
   h5 {
+    position: absolute;
+    top: 138px;
+    left: 100px;
     color: var(--gray-300);
+    width: 43%;
+  }
+  main {
+    top: 0;
+    left: 0;
   }
 </style>
